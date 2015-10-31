@@ -1,0 +1,33 @@
+<table class="table table-bordered calendar-table">
+  <thead>
+    <tr>
+      <th>Sunday</th>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+      <th>Saturday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% date.beginning_of_month.wday.times do %>
+        <td></td>
+      <% end %>
+
+      <% date.all_month.each do |day| %>
+        <% if day.next_day == day.end_of_week %>
+          <%= render partial: 'date', locals: { day: day } %>
+          <tr></tr>
+        <% else %>
+          <%= render partial: 'date', locals: { day: day } %>
+        <% end %>
+      <% end %>
+
+      <% (6-date.end_of_month.wday).times do %>
+        <td></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

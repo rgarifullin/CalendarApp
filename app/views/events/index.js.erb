@@ -1,0 +1,10 @@
+$(document).on('ajax:success', function() {
+  $('.event-list').html('<%= j render partial: 'list', locals: { events: @events, paginate: false } %>');
+  $('.current-month').html('<%= j @date.strftime('%B %Y') %>');
+  $('.current-date').html('<%= j @date.strftime('%A, %e.%m.%Y') %>');
+  $('.calendar').html('<%= j render partial: 'calendar', locals: { date: @date } %>');
+  $('.change-month-prev').html('<%= j link_to 'Previous', user_events_path(current_user,
+    class: 'change-month-prev', date: @date.prev_month.beginning_of_month), remote: true %>');
+  $('.change-month-next').html('<%= j link_to 'Next', user_events_path(current_user,
+    class: 'change-month-next', date: @date.next_month.beginning_of_month), remote: true %>');
+});

@@ -1,0 +1,7 @@
+<td>
+  <% if day == Date.today %>
+    <p class="today"><%= link_to day.day, user_events_path(current_user, date: day), remote: true %></p>
+  <% else %>
+    <p><%= link_to day.day, controller: :events, action: :index, date: day, remote: true %></p>
+  <% end %>
+</td>
