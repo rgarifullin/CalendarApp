@@ -43,3 +43,8 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'devise'
+gem 'ice_cube'
+gem 'will_paginate'
+# Heroku config
+gem 'rails_12factor', group: :production
