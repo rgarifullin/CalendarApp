@@ -1,0 +1,23 @@
+<%= javascript_include_tag 'rails_month_dates' %>
+
+<div class="event-heading">
+  <h1>Editing event</h1>
+</div>
+<div class="form form-event">
+  <%= form_for :event, url: user_event_path(current_user, @event), method: :patch do |f| %>
+    <%= f.text_field :title, class: 'form-control' %>
+    <%= f.text_area :description, class: 'form-control' %>
+    <%= f.select :recurrence, options_for_select([['One-time', 'one-time'], ['Daily', 'daily'], ['Weekly', 'weekly'], 
+                                                  ['Monthly', 'monthly'], ['Yearly', 'yearly']], 
+                                                  selected: @event.recurrence) %>
+    <div class="form-group">
+      <%= f.fields_for :schedule, @event.schedule do |s| %>
+        <%= s.date_select :start_time, start_year: Date.today.year %>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.submit 'Update', class: 'btn btn-primary' %>
+      <%= link_to 'Back', user_events_path, class: 'btn btn-default' %>
+    </div>
+  <% end %>
+</div>
