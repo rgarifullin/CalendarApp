@@ -15,5 +15,5 @@
   <h3 class="current-date"><%= @date.strftime('%A, %e.%m.%Y') %></h3>
 </div>
 <div class="event-list">
-  <%= render partial: 'list', locals: { events: @events, paginate: false } %>
+  <%= render partial: 'list', locals: { events: @events } %>
 </div>
