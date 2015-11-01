@@ -1,14 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Calendarapp</title>
+  <title>Calendar</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<%= yield %>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navigation">
+      <ul class="nav">
+        <li class="navbar-brand"><%= link_to 'Calendar App', '/' %></li>
+        <div class=" nav navbar-nav navbar-left" >
+          <% if current_user %>
+            <li><%= link_to 'New event', new_user_event_path(current_user) %></li>
+            <li><%= link_to 'All events list', user_list_path(current_user) %></li>
+          <% end %>
+        </div>
+        <div class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li><%= link_to current_user.email, edit_user_registration_path(current_user) %></li>
+            <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
+          <% else %>
+            <li><%= link_to 'Sign In', new_user_session_path %></a></li>
+            <li><%= link_to 'Sign Up', new_user_registration_path %></a></li>
+          <% end %>
+        </div>
+      </ul>
+    </div>
+  </nav>
+
+  <% unless flash.blank? %>
+    <div class="alert" role="alert">
+      <% flash.each do |name, msg| %>
+        <% case name %>
+        <% when 'error' %>
+          <%= content_tag :div, msg, class: 'alert alert-danger' %>
+        <% when 'notice' %>
+          <%= content_tag :div, msg, class: 'alert alert-success' %>
+        <% else %>
+          <%= content_tag :div, msg, class: 'alert alert-info' %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if @event && @event.errors.any? %>
+    <div class="alert alert-danger">
+      <p><%= pluralize(@event.errors.count, 'error') %> :</p>
+    <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= yield %>
 
 </body>
 </html>
