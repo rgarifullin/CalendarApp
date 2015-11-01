@@ -46,5 +46,6 @@ end
 gem 'devise'
 gem 'ice_cube'
 gem 'will_paginate'
+gem 'bootstrap-sass'
 # Heroku config
 gem 'rails_12factor', group: :production
