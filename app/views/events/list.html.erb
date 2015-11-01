@@ -1,0 +1,13 @@
+<div class="event-header">
+  <h3>Events</h3>
+  <%= form_tag user_list_path(current_user), method: :get, remote: true, class: 'search' do %>
+    <%= search_field_tag :search, params[:search], placeholder: 'Search by title' %>
+    <%= submit_tag 'Search', name: nil %>
+  <% end %>
+</div>
+<div class="event-list">
+  <%= render partial: 'list', locals: { events: @events } %>
+</div>
+<div class="pagination">
+  <%= will_paginate @events %>
+</div>
