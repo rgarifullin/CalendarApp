@@ -3,7 +3,7 @@
 <div class="header">
   <h1>Editing event</h1>
 </div>
-<div class="form form-event">
+<div class="form form-std">
   <%= form_for :event, url: user_event_path(current_user, @event), method: :patch do |f| %>
     <div class="field">
       <%= f.label :title %>
