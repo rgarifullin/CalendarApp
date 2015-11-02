@@ -1,4 +1,4 @@
-<div class="calendar-header">
+<div class="header">
   <h3>Full month calendar</h3>
   <ul>
     <li class="change-month-prev"><%= link_to 'Previous', user_events_path(current_user,
@@ -11,7 +11,7 @@
 <div class="calendar">
   <%= render partial: 'calendar', locals: { date: @date } %>
 </div>
-<div class="event-header">
+<div class="header">
   <h3 class="current-date"><%= @date.strftime('%A, %e.%m.%Y') %></h3>
 </div>
 <div class="event-list">

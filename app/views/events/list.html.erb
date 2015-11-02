@@ -1,4 +1,4 @@
-<div class="event-header">
+<div class="header">
   <h3>Events</h3>
   <%= form_tag user_list_path(current_user), method: :get, remote: true, class: 'search' do %>
     <%= search_field_tag :search, params[:search], placeholder: 'Search by title' %>
