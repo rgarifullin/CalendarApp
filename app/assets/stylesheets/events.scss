@@ -1,3 +1,42 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.form-event {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.event-table {
+  table-layout: fixed;
+  margin: 20px auto;
+  max-width: 800px;
+}
+.event-table tr:hover td {
+    background: #aee7ff;
+}
+.event-table th {
+    text-align: center;
+}
+    th.col-title {
+        width: 25px;
+    }
+    th.col-descr {
+        width: 50px;
+    }
+    th.col-startdate {
+        width: 20px;
+    }
+    th.col-recurrence {
+        width: 20px;
+    }
+.event-table li {
+    display: inline;
+}
+
+.delete-link:hover::after {
+    content: 'Delete event';
+    position: absolute;
+    margin: 20px 10px;
+    padding: 3px;
+    background: #76d199;
+}
