@@ -9,5 +9,5 @@
   <%= render partial: 'list', locals: { events: @events } %>
 </div>
 <div class="pagination">
-  <%= will_paginate @events %>
+  <%= will_paginate @events, renderer: BootstrapPagination::Rails %>
 </div>
