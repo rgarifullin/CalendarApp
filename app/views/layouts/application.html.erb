@@ -49,11 +49,12 @@
   <% if @event && @event.errors.any? %>
     <div class="alert alert-danger">
       <p><%= pluralize(@event.errors.count, 'error') %> :</p>
-    <ul>
-      <% @event.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+      <ul>
+        <% @event.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 
   <%= yield %>
