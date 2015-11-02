@@ -1,0 +1,35 @@
+.calendar {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.calendar-table {
+  table-layout: fixed;
+
+  td {
+    height: 50px;
+  }
+  td:first-child {
+    background-color: #eeeeee;
+  }
+
+  th {
+    text-align: center;
+  }
+
+  li {
+    display: block;
+    font-size: 12px;
+  }
+
+  p {
+    font-size: 36px;
+    color: #121e68;
+    text-align: center;
+  }
+}
+
+p.today {
+  color: #7f0007;
+  font-weight: bold;
+}
