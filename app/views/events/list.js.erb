@@ -1,3 +1,4 @@
 $('.search').on('ajax:success', function() {
   $('.event-list').html('<%= j render partial: 'list', locals: { events: @events} %>');
+  $('.pagination').hide();
 });
