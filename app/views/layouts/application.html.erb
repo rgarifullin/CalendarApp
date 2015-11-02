@@ -31,13 +31,10 @@
   <% unless flash.blank? %>
     <div class="alert" role="alert">
       <% flash.each do |name, msg| %>
-        <% case name %>
-        <% when 'error' %>
-          <%= content_tag :div, msg, class: 'alert alert-danger' %>
-        <% when 'notice' %>
+        <% if name == 'notice' %>
           <%= content_tag :div, msg, class: 'alert alert-success' %>
         <% else %>
-          <%= content_tag :div, msg, class: 'alert alert-info' %>
+          <%= content_tag :div, msg, class: 'alert alert-danger' %>
         <% end %>
       <% end %>
     </div>
