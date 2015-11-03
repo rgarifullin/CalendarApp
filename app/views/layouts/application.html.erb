@@ -29,19 +29,17 @@
   </nav>
 
   <% unless flash.blank? %>
-    <div class="alert" role="alert">
-      <% flash.each do |name, msg| %>
-        <% if name == 'notice' %>
-          <%= content_tag :div, msg, class: 'alert alert-success' %>
-        <% else %>
-          <%= content_tag :div, msg, class: 'alert alert-danger' %>
-        <% end %>
+    <% flash.each do |name, msg| %>
+      <% if name == 'notice' %>
+        <%= content_tag :div, msg, class: 'alert alert-success', role: 'alert' %>
+      <% else %>
+        <%= content_tag :div, msg, class: 'alert alert-danger', role: 'alert' %>
       <% end %>
-    </div>
+    <% end %>
   <% end %>
 
   <% if @event && @event.errors.any? %>
-    <div class="alert alert-danger">
+    <div class="alert alert-danger" role="alert">
       <p><%= pluralize(@event.errors.count, 'error') %> :</p>
       <ul>
         <% @event.errors.full_messages.each do |msg| %>
