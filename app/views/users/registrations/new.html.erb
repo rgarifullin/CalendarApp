@@ -1,9 +1,11 @@
 <div class="header">
   <h2>Sign up</h2>
 </div>
+
+<%= render 'users/shared/error' %>
+
 <div class="form form-std">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
 
     <div class="field">
       <%= f.label :Full_name %><br />
