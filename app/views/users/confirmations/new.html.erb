@@ -10,7 +10,7 @@
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, class: 'form-control',
-                         value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %> 
+                         value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: 'you@example.com' %> 
     </div>
 
     <div class="actions">
