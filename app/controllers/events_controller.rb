@@ -53,7 +53,10 @@ class EventsController < ApplicationController
   def destroy
     @event = current_user.events.find(params[:id])
     @event.destroy
-    redirect_to(:back)
+    respond_to do |format|
+      format.html { redirect_to(:back) }
+      format.js
+    end
   end
 
   def list
