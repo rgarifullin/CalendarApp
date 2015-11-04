@@ -10,6 +10,10 @@
   table-layout: fixed;
   margin: 20px auto;
 
+  td {
+    word-wrap:break-word;
+  }
+  
   li {
     display: inline;
   }
