@@ -48,5 +48,6 @@ gem 'ice_cube'
 gem 'will_paginate'
 gem 'bootstrap-sass'
 gem 'will_paginate-bootstrap'
+gem 'puma'
 # Heroku config
 gem 'rails_12factor', group: :production
