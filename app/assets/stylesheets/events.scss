@@ -2,47 +2,89 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .event-list {
-  max-width: 800px;
-  margin: auto;
+  margin: 0 auto;
+
+  p {
+    text-align: center;
+  }
+}
+
+.event-table, .event-table-detailed {
+  border: 1px solid;
+  border-collapse: collapse;
+  margin: 20px auto;
+
+  td, th {
+    border: 1px solid;
+    padding: 4px 6px;
+  }
+
+  td {
+    word-break: break-all;
+  }
+
+  th {
+    text-align: center;
+  }
 }
 
 .event-table {
-  table-layout: fixed;
-  margin: 20px auto;
+  max-width: 300px;
 
-  td {
-    word-wrap:break-word;
+  .col-title {
+    width: 40%;
   }
-  
-  li {
-    display: inline;
+  .col-descr {
+    width: 60%;
   }
 }
 
-.event-table tr:hover td {
-  background: #aee7ff;
+.event-table-detailed {
+  max-width: 800px;
+  width: 95%;
+
+  .col-title {
+    width: 30%;
+  }
+  .col-descr {
+    width: 40%;
+  }
+  .col-startdate {
+    width: 15%;
+  }
+  .col-recurrence {
+    width: 15%;
+  }
+
+  tr:hover td {
+    background: #aee7ff;
+  }
 }
 
-.event-table th {
+.event-search {
   text-align: center;
-}
-  th.col-title {
-    width: 25px;
-  }
-  th.col-descr {
-    width: 50px;
-  }
-  th.col-startdate {
-    width: 20px;
-  }
-  th.col-recurrence {
-    width: 20px;
-  }
 
-.delete-link:hover::after {
-  content: 'Delete event';
-  position: absolute;
-  margin: 20px 10px;
-  padding: 3px;
-  background: #76d199;
+  h1 {
+    font-size: 24px;
+  }
+}
+
+.delete-link {
+  vertical-align: super;
+  font-size: smaller;
+
+  &:hover::after {
+    content: 'Delete event';
+    position: absolute;
+    margin: 20px 10px;
+    padding: 3px;
+    background: #0000ff;
+    color: #ffffff;
+    border-radius: 2px;
+    font-size: small;
+  }
+}
+
+.pagination {
+  margin: 0 auto;
 }

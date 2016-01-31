@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Calendar</title>
+  <title><%= content_for(:title) ? yield(:title) : "Calendar" %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-    <div class="navigation">
-      <ul class="nav">
-        <li class="navbar-brand"><%= link_to 'Calendar App', '/' %></li>
-        <div class=" nav navbar-nav navbar-left" >
-          <% if current_user %>
-            <li><%= link_to 'New event', new_user_event_path(current_user) %></li>
-            <li><%= link_to 'All events list', user_list_path(current_user) %></li>
-          <% end %>
-        </div>
-        <div class="nav navbar-nav navbar-right">
-          <% if current_user %>
-            <li><%= link_to current_user.email, edit_user_registration_path(current_user) %></li>
-            <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
-          <% end %>
-        </div>
+  <header>
+    <h1><%= link_to 'Calendar App', '/' %></h1>
+  </header>
+  <nav>
+    <% if current_user %>
+      <ul class="nav-left">
+        <li><%= link_to 'New event', new_user_event_path(current_user) %></li>
+        <li><%= link_to 'All events list', user_list_path(current_user) %></li>
       </ul>
-    </div>
+      <ul class="nav-right">
+        <li><%= link_to current_user.email, edit_user_registration_path(current_user) %></li>
+        <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
+      </ul>
+    <% else %>
+      <ul>
+        <li><%= link_to 'Log In', new_user_session_path %></li>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+      </ul>
+    <% end %>
   </nav>
 
   <% unless flash.blank? %>
@@ -40,7 +41,7 @@
 
   <% if @event && @event.errors.any? %>
     <div class="alert alert-danger" role="alert">
-      <p><%= pluralize(@event.errors.count, 'error') %> :</p>
+      <h2><%= pluralize(@event.errors.count, 'error') %> :</h2>
       <ul>
         <% @event.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -49,7 +50,12 @@
     </div>
   <% end %>
 
-  <%= yield %>
+  <main>
+    <%= yield %>
+  </main>
 
+  <footer>
+    <p><small>&copy; 2015-2016 <%= link_to "Project at Github", "https://github.com/rgarifullin/CalendarApp/"%></small></p>
+  </footer>
 </body>
 </html>

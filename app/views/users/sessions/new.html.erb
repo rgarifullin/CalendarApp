@@ -1,8 +1,12 @@
-<div class="header">
-  <h2>Log in</h2>
-</div>
-<div class="form form-std">
+<% content_for :title, "Log In" %>
+
+<%= render 'users/shared/error' %>
+
+<section class="form-section">
+  <h1 class="text-center">Log in</h1>
+
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'you@example.com' %>
@@ -26,4 +30,4 @@
   <% end %>
 
   <%= render "users/shared/links" %>
-</div>
+</section>

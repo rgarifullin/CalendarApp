@@ -1,12 +1,14 @@
 <div class="event-list">
   <% if events.empty? %>
-    <p>No event found.</p>
+    <h2>No event found.</h2>
   <% else %>
-    <table class="event-table">
+    <table class="event-table-detailed">
       <thead>
         <tr>
           <th class="col-title">Title</th>
           <th class="col-descr">Description</th>
+          <th class="col-startdate">Start date</th>
+          <th class="col-recurrence">Recurrence</th>
         </tr>
       </thead>
       <tbody>
@@ -18,6 +20,8 @@
                                  data: { confirm: 'Are you sure?' }, remote: true %>
             </td>
             <td><%= event.description %></td>
+            <td class="text-center"><%= event.schedule.start_time.to_date %></td>
+            <td class="text-center"><%= event.recurrence.capitalize %></td>
           </tr>
         <% end %>
       </tbody>

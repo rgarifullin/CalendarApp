@@ -1,9 +1,10 @@
 <%= javascript_include_tag 'rails_month_dates' %>
 
-<div class="header">
-  <h1>Creating new event</h1>
-</div>
-<div class="form form-std">
+<% content_for :title, "Creating new event" %>
+
+<section class="form-section">
+  <h1 class="text-center">Creating new event</h1>
+
   <%= form_for([@user, @event]) do |f| %>
     <div class="field">
       <%= f.label :title %>
@@ -29,5 +30,4 @@
       <%= link_to 'Back', user_events_path, class: 'btn btn-default' %>
     </div>
   <% end %>
-</div>
-
+</section>

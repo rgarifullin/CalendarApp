@@ -1,16 +1,16 @@
-<div class="header">
-  <h2>Resend confirmation instructions</h2>
-</div>
+<% content_for :title, "Resend confirmation instructions" %>
 
 <%= render 'users/shared/error' %>
 
-<div class="form form-std">
+<section class="form-section">
+  <h1 class="text-center">Resend confirmation instructions</h1>
+
   <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
 
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, class: 'form-control',
-                         value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: 'you@example.com' %> 
+                         value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: 'you@example.com' %>
     </div>
 
     <div class="actions">
@@ -19,4 +19,4 @@
   <% end %>
 
   <%= render "users/shared/links" %>
-</div>
+</section>

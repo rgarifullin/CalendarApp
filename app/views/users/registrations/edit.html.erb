@@ -1,10 +1,10 @@
-<div class="header">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
-</div>
+<% content_for :title, "Edit account" %>
 
 <%= render 'users/shared/error' %>
 
-<div class="form form-std">
+<section class="form-section">
+  <h1 class="text-center">Edit account</h1>
+
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
     <div class="field">
@@ -42,8 +42,7 @@
     </div>
   <% end %>
 
-  <h3>Cancel my account</h3>
+  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" },
+                                                 method: :delete, class: 'btn btn-danger' %>
 
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, 
-                                                 method: :delete, class: 'btn btn-danger' %></p>
-</div>
+</section>

@@ -1,5 +1,5 @@
-<div class="header">
-  <h3>Full month calendar</h3>
+<section class="calendar-left">
+  <h1>Full month calendar</h1>
   <ul>
     <li class="change-month-prev"><%= link_to 'Previous', user_events_path(current_user,
                     date: @date.prev_month.beginning_of_month), remote: true %></li>
@@ -7,13 +7,12 @@
     <li class="change-month-next"><%= link_to 'Next', user_events_path(current_user,
                     date: @date.next_month.beginning_of_month), remote: true %></li>
   </ul>
-</div>
-<div class="calendar">
+
   <%= render partial: 'calendar', locals: { date: @date } %>
-</div>
-<div class="header">
-  <h3 class="current-date"><%= @date.strftime('%A, %e.%m.%Y') %></h3>
-</div>
-<div class="event-list">
+</section>
+
+<section class="calendar-right">
+  <h2 class="current-date"><%= @date.strftime('%A, %e.%m.%Y') %></h2>
+
   <%= render partial: 'list', locals: { events: @events } %>
-</div>
+</section>

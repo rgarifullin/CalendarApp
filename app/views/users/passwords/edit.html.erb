@@ -1,10 +1,10 @@
-<div class="header">
-  <h2>Change your password</h2>
-</div>
+<% content_for :title, "Change your password" %>
 
 <%= render 'users/shared/error' %>
 
-<div class="form form-std">
+<section class="form-section">
+  <h1 class="text-center">Change your password</h1>
+
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.hidden_field :reset_password_token %>
 
@@ -27,4 +27,4 @@
   <% end %>
 
   <%= render "users/shared/links" %>
-</div>
+</section>
