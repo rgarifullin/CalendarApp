@@ -17,11 +17,9 @@
       <% end %>
 
       <% date.all_month.each do |day| %>
+        <%= render partial: 'date', locals: { day: day } %>
         <% if day.next_day == day.end_of_week %>
-          <%= render partial: 'date', locals: { day: day } %>
           <tr></tr>
-        <% else %>
-          <%= render partial: 'date', locals: { day: day } %>
         <% end %>
       <% end %>
 
